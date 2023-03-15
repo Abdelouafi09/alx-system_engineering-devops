@@ -1,2 +1,2 @@
 #!/bin/bash
-diff set.sorted printenv.sorted | grep "<" | awk '{ print $2 }'
+echo "$(set | grep -v 'BASH' | grep -v 'FUNCNAME' | grep -v 'BASH_ARGV' | grep -v 'BASH_LINENO' | grep -v 'BASH_SOURCE' | grep -v 'PWD' | grep -v 'OLDPWD') $(env) $(declare -F)"
